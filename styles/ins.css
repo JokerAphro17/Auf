@@ -1,0 +1,16 @@
+.input-group{
+    border: 2px solid black !important;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.last{
+    border: orange 1px solid;
+    font-weight: bold;
+}
+.envoi{
+        
+}
+.
