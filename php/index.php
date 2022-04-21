@@ -8,5 +8,5 @@ catch(Exception $e)
 {
     die('Erreur : '.$e->getMessage());
 }
-
+header('Location: ../pages/inscription.html');
 ?>
