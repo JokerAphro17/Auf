@@ -51,3 +51,17 @@ a{
     background-size: cover;
     background-repeat: no-repeat;
 }
+.c1,.c2{
+    transition: all 0.4s;
+}
+.c1:hover {
+    transform: scale(0.9);
+    box-shadow: 0px 5px 10px yellow;
+}
+.c2:hover{
+    transform: scale(0.9);
+    box-shadow:0px 5px 10px blue ;
+}
+nav{
+    border-bottom: #433C3A solid 1px;
+}
