@@ -88,8 +88,9 @@
                                             </td>
                                         
                                         <td>
-                                            <button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button>
-                                            <button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button>
+                                            <a href='supprimer.php?id=$donnees[id]'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button></a>
+                                            <a href='modif.php?id=$donnees[id]'>
+                                            <button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button></a>
                                         </td>
                                         
                                         </tr>");
@@ -101,7 +102,9 @@
                                     die('Erreur : '.$e->getMessage());
                                 }
                                 ?>
-                                
+                                <?php
+                                $reponse->closeCursor();
+                                ?>
                             </tbody>
                             </table>
                         </div>
