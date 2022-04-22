@@ -1,3 +1,21 @@
+<?php
+include('./connexion.php');
+if (isset($_POST['envoi'])) {
+  $nom = $_POST['nom'];
+  $prenom = $_POST['prenom'];
+  $date_naiss = $_POST['date_naiss'];
+  $debut_ab = $_POST['debut_ab'];
+  $numero = $_POST['numero'];
+  $email = $_POST['email'];
+  $id = $_GET['id'];
+  $update = $bdd->prepare('UPDATE abonnes SET nom=?, prenom=?, date_naiss=?, debut_ab=?, numero=?, email=? WHERE id=?');
+  $update->execute(array($nom, $prenom, $date_naiss, $debut_ab, $numero, $email, $id));
+  $update->closeCursor();
+  header('Location: list.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +41,20 @@
         <div class="col-md-8 titre col-sm-12">GESTIONNAIRE DES ABONNES</div>
       </div>
     </nav>
+<?php 
 
+
+try
+{   $insert = $bdd->prepare('SELECT * FROM abonnes WHERE id=?');
+    $insert->execute(array($_GET['id']));
+}
+catch(Exception $e)
+{
+    die('Erreur : '.$e->getMessage());
+}
+$donnes = $insert->fetch();
+
+?>
     <div class="container-fluid corps">
       <div class="row justify-content-center mt-5">
         <div class="col-6 bg-danger text-light text-center">
@@ -31,15 +62,17 @@
         </div>
       </div>
       <div class="row">
-        <form action="" class="col-md-6 offset-md-3 mt-5">
+        <form action="" method="post" class="col-md-6 offset-md-3 mt-5">
           <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">NOM</span>
+            <span class="input-group-text" id="inputGroup-sizing-sm" >NOM</span>
             <input
+              name="nom"
               type="text"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value="<?php echo "$donnes[nom]"; ?>"
             />
           </div>
           <div class="input-group input-group-sm mb-3">
@@ -47,23 +80,28 @@
               >PRENOMS</span
             >
             <input
+              name="prenom"
               type="text"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value="<?php echo "$donnes[prenom]"; ?>"
             />
           </div>
           <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm"
+            <span class="input-group-text" id="inputGroup-sizing-sm" value="
+            "
               >DATE DE NAISSANCE</span
             >
             <input
+              name="date_naiss"
               type="date"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value="<?php echo "$donnes[date_naiss]"; ?>"
             />
           </div>
           <div class="input-group input-group-sm mb-3">
@@ -71,11 +109,13 @@
               >DEBUT D'ABONNEMENT</span
             >
             <input
+              name="debut_ab"
               type="date"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value="<?php echo "$donnes[debut_ab]"; ?>"
             />
           </div>
           <div class="input-group input-group-sm mb-3">
@@ -83,11 +123,13 @@
               >NUMERO DE TEL</span
             >
             <input
+              name="numero"
               type="text"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value="<?php echo "$donnes[numero]"; ?>"
             />
           </div>
           <div class="input-group input-group-sm mb-3">
@@ -95,19 +137,22 @@
               >EMAIL</span
             >
             <input
+              name="email"
               type="email"
               class="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
               required
+              value='<?php echo "$donnes[email]"; 
+              $insert->closeCursor();?>'
             />
           </div>
           <div class="row justify-content-around">
             <div class="col-4">
-              <button type="" class="cancel btn btn-warning">annuler</button>
+            <a href="list.php" class="btn btn-danger">ANNULER</a>
             </div>
             <div class="col-4">
-              <button type="submit" class="envoi btn btn-success">
+              <button type="submit" name="envoi" class="envoi btn btn-success">
                 Enregitrer
               </button>
             </div>
