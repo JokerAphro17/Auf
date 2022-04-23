@@ -68,3 +68,6 @@ nav{
 .carte2{
     background-color: transparent !important;
 }
+.carte2:hover{
+    background-color: #ececec !important;
+}

@@ -21,7 +21,14 @@
             </div>
         </div>
     </nav>
+
 <!-- le formulaire ici  -->
+
+<?php 
+if (isset($_GET['ok'])) {
+    echo "<div class='alert alert-success text-center'>Enregistrement effectué avec succès</div>";
+}
+?>
 <div class='container-fluid corps'>
     <div class='row'>
         <div class='col-md-6 offset-md-3 col-sm-12 mt-5 text-light text-center demand'>
@@ -138,7 +145,7 @@
 </div>
 <footer class='text-center text-text mt-5' style='background-color: #f1f1f1;'>
     <div class='text-center text-light p-3' style='background-color:#A90A2F;'>
-    © 2020 Copyright:
+    © 2022 Copyright:
 
     </div>
     <!-- Copyright -->
