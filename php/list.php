@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='../assets/bootstrap5/css/bootstrap.min.css'>
     <script src='../assets/bootstrap5/js/bootstrap.bundle.js' defer></script>
     <link rel='stylesheet' href='../styles/list.css'>
+    <script src="../scripts/index.js"defer></script>
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' />
     <link rel='stylesheet' href='../styles/index.css'>
     <title>Liste</title>
@@ -63,7 +64,7 @@
                                     $i=1;
                                     while ($donnees = $reponse->fetch())
                                     { 
-                                        echo (" <tr>
+                                        echo (" <tr class='ligne'>
                                         <td class='pl-4 '>$i</td>
                                         <td>
                                             <h5 class='font-medium mb-0'>$donnees[nom]   $donnees[prenom]</h5>
@@ -117,7 +118,7 @@
 </div>
         <footer class='text-center text-text mt-5' style='background-color: #f1f1f1;'>
             <div class='text-center text-light p-3' style='background-color:#A90A2F;'>
-            © 2020 Copyright:
+            © 2022 Copyright:
         
             </div>
             <!-- Copyright -->

@@ -5,4 +5,14 @@
     position: relative;
     float: right;
 }
-.
+.dernier{
+    opacity: 0;
+    transition: opacity 0.5s;
+    transform: scale(0);
+}
+.affichage{
+    transition: opacity 0.5s;
+
+    opacity: 1;
+    transform: scale(1);
+}

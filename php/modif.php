@@ -166,7 +166,7 @@ $donnes = $insert->fetch();
       style="background-color: #f1f1f1"
     >
       <div class="text-center text-light p-3" style="background-color: #a90a2f">
-        © 2020 Copyright:
+        © 2022 Copyright:
       </div>
       <!-- Copyright -->
     </footer>
