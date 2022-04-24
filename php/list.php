@@ -36,7 +36,7 @@ if(isset($_GET['modif'])){
 ?>
     <div class='container-fluid corps'>
         <div class='row justify-content-evenly mt-5'>
-            <div class='col-md-4  col-sm-4 ms-1  text-light text-center  '>
+            <div class='col-md-4   col-sm-4 ms-1  text-light text-center  '>
                <h1 class="demand">GESTION</h1>
             </div>
             <div class='col-4 text-center d-flex col-sm-4'>
@@ -61,7 +61,7 @@ if(isset($_GET['modif'])){
                             <h3 class='card-title'>Liste des Abonnés</h3>
                         <div class='table-responsive'>
                             <table class='table no-wrap user-table mb-0'>
-                            <thead >
+                            <thead class="bg-secondary text-white">
                                 <tr>
                                 <th scope='col' class='border-0 text-uppercase font-medium pl-4'>#</th>
                                 <th scope='col' class='border-0 text-uppercase font-medium'>Nom complet </th>

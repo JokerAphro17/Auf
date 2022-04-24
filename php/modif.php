@@ -152,7 +152,7 @@ $donnes = $insert->fetch();
           </div>
           <div class="row justify-content-around">
             <div class="col-4">
-            <a href="list.php" class="btn btn-danger">ANNULER</a>
+            <a href="list.php" class="btn envoi btn-danger">ANNULER</a>
             </div>
             <div class="col-4">
               <button type="submit" name="envoi" class="envoi btn btn-success">
