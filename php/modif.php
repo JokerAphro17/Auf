@@ -11,7 +11,8 @@ if (isset($_POST['envoi'])) {
   $update = $bdd->prepare('UPDATE abonnes SET nom=?, prenom=?, date_naiss=?, debut_ab=?, numero=?, email=? WHERE id=?');
   $update->execute(array($nom, $prenom, $date_naiss, $debut_ab, $numero, $email, $id));
   $update->closeCursor();
-  header('Location: list.php');
+  header('Location: list.php?modif=1');
+
 }
 
 

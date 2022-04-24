@@ -1,9 +1,12 @@
+
 .rond{
     border-radius: 50%;
-    height: 90px;
-    width: 90px;
-    position: relative;
-    float: right;
+    width: 120px;
+    height: 120px;
+    position: ;
+    right: 0;
+    
+
 }
 .dernier{
     opacity: 0;

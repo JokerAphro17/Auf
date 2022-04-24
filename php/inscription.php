@@ -26,7 +26,7 @@
 
 <?php 
 if (isset($_GET['ok'])) {
-    echo "<div class='alert alert-success text-center'>Enregistrement effectué avec succès</div>";
+    echo "<div class='alert alert-success text-light text-center bg-success'><h5>Enregistrement effectué avec succès</h5></div>";
 }
 ?>
 <div class='container-fluid corps'>
@@ -61,7 +61,7 @@ if (isset($_GET['ok'])) {
                   </div>
                   <div class='input-group input-group-sm mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>NUMERO DE TEL</span>
-                    <input name='numero' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
+                    <input name='numero' type='number   ' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
                   <div class='input-group input-group-sm mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>EMAIL</span>

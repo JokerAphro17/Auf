@@ -9,5 +9,5 @@ catch(Exception $e)
 {
     die('Erreur : '.$e->getMessage());
 }
-header('Location: ../php/inscription.php#last?ok=1');
+header('Location: ../php/inscription.php?ok=1');
 ?>

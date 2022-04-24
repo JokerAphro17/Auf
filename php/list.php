@@ -23,16 +23,24 @@
             </div>
         </div>
     </nav>
+<?php 
+if(isset($_GET['supprimer'])){
+    echo "<div class='alert alert-success text-center text-light bg-success'><h5>L'abonné a bien été supprimé</h5></div>";
+}
+if(isset($_GET['modif'])){
+    echo "<div class='alert alert-success text-center text-light bg-success'><h5>L'abonné a bien été modifié</h5></div>";
+}
 
+?>
     <div class='container-fluid corps'>
-        <div class='row justify-content-start mt-5'>
-            <div class='col-md-3 offset-md-2 col-sm-4 ms-1  text-light text-center ali demand'>
-               <h1>GESTION</h1>
+        <div class='row justify-content-evenly mt-5'>
+            <div class='col-md-4  col-sm-4 ms-1  text-light text-center  '>
+               <h1 class="demand">GESTION</h1>
             </div>
-            <div class='col-md-2 offset-md-4 text-center col-sm-4'>
-                <div class='rond  bg-warning'>
-                    10 <br> ABONNES
-                </div>
+            <div class='col-4 text-center  col-sm-4'>
+                
+                    <h3 class="bg-warning rond">10 <br> abonnés</h3>
+                
             </div>
         </div>
         <div class='row '>
