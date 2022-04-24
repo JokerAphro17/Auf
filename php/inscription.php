@@ -14,7 +14,9 @@
     <nav>
         <div class='row'>
             <div class='col-md-3 col-sm-12'>
+                <a href='../index.html'>
                 <img src='../assets/img/nouveau logo AUF.png' alt='logo' class='logo w-100 '>
+                </a>
             </div>
             <div class='col-md-8 titre col-sm-12'>
                 GESTIONNAIRE DES ABONNES
@@ -45,14 +47,20 @@ if (isset($_GET['ok'])) {
                 </div>
                 <div class='input-group input-group-sm mb-3'>
                     <span  class='input-group-text' id='inputGroup-sizing-sm'>NOM</span>
-                    <input name='nom' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
+                    <input name='nom' type='text' 
+                    pattern = '[a-zA-Z]{1,20}'
+                    class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
                   <div class='input-group input-group-sm mb-3'>
-                    <span class='input-group-text' id='inputGroup-sizing-sm'>PRENOMS</span>
-                    <input name='prenom' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
+                    <span class='input-group-text' 
+                    
+                    id='inputGroup-sizing-sm'>PRENOMS</span>
+                    
+                    <input name='prenom' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'
+                    pattern = "[a-zA-Z\s]{1,20}" required>
                   </div>
                   <div class='input-group input-group-sm mb-3'>
-                    <span class='input-group-text' id='inputGroup-sizing-sm'>DATE DE NAISSANCE</span>
+                    <span class='input-group-text'id='inputGroup-sizing-sm'>DATE DE NAISSANCE</span>
                     <input name='date_naiss' type='date' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
                   <div class='input-group input-group-sm mb-3'>
@@ -61,7 +69,9 @@ if (isset($_GET['ok'])) {
                   </div>
                   <div class='input-group input-group-sm mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>NUMERO DE TEL</span>
-                    <input name='numero' type='number   ' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
+                    <input name='numero' type='number'
+                    pattern = "[0-9]{8,10}"
+                    class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
                   <div class='input-group input-group-sm mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>EMAIL</span>

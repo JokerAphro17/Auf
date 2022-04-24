@@ -16,7 +16,9 @@
     <nav>
         <div class='row'>
             <div class='col-md-3 col-sm-12'>
+                <a href='../index.html'>
                 <img src='../assets/img/nouveau logo AUF.png' alt='logo' class='logo w-100 '>
+                </a>
             </div>
             <div class='col-md-8 titre col-sm-12 '>
                 GESTIONNAIRE DES ABONNES
@@ -37,9 +39,15 @@ if(isset($_GET['modif'])){
             <div class='col-md-4  col-sm-4 ms-1  text-light text-center  '>
                <h1 class="demand">GESTION</h1>
             </div>
-            <div class='col-4 text-center  col-sm-4'>
+            <div class='col-4 text-center d-flex col-sm-4'>
                 
-                    <h3 class="bg-warning rond">10 <br> abonnés</h3>
+                    <h3 class="bg-warning rond"><?php
+                    
+                    include('./connexion.php'); 
+                    $nbr = $bdd->query("SELECT COUNT(*) FROM abonnes")->fetchColumn();
+                    echo $nbr;
+
+                     ?> <br> abonné(s)</h3>
                 
             </div>
         </div>
@@ -53,7 +61,7 @@ if(isset($_GET['modif'])){
                             <h3 class='card-title'>Liste des Abonnés</h3>
                         <div class='table-responsive'>
                             <table class='table no-wrap user-table mb-0'>
-                            <thead>
+                            <thead >
                                 <tr>
                                 <th scope='col' class='border-0 text-uppercase font-medium pl-4'>#</th>
                                 <th scope='col' class='border-0 text-uppercase font-medium'>Nom complet </th>
@@ -99,7 +107,7 @@ if(isset($_GET['modif'])){
                                         <td>
                                             <a href='supprimer.php?id=$donnees[id]'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button></a>
                                             <a href='modif.php?id=$donnees[id]'>
-                                            <button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button></a>
+                                            <button type='button' class='btn  btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button></a>
                                         </td>
                                         
                                         </tr>");
@@ -123,6 +131,11 @@ if(isset($_GET['modif'])){
             </div>
         </div>
     </div>
+    button add
+    <div class='row justify-content-center'>
+        <div class='col-md-4 col-sm-4'>
+            <a href='inscription.php'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-plus'></i> AJOUTER UN ABONNE</button></a>
+        </div>
 </div>
         <footer class='text-center text-text mt-5' style='background-color: #f1f1f1;'>
             <div class='text-center text-light p-3' style='background-color:#A90A2F;'>

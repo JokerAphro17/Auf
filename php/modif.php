@@ -27,17 +27,19 @@ if (isset($_POST['envoi'])) {
     <script src="../assets/bootstrap5/js/bootstrap.bundle.js" defer></script>
     <link rel="stylesheet" href="../styles/modif.css" />
     <link rel="stylesheet" href="../styles/index.css" />
-    <title>Liste</title>
+    <title>Modification</title>
   </head>
   <body class="container-fluid">
     <nav>
       <div class="row">
         <div class="col-md-3 col-sm-12">
+          <a href="../index.html">
           <img
             src="../assets/img/nouveau logo AUF.png"
             alt="logo"
             class="logo w-100"
           />
+          </a>
         </div>
         <div class="col-md-8 titre col-sm-12">GESTIONNAIRE DES ABONNES</div>
       </div>
