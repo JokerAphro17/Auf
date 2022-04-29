@@ -33,7 +33,7 @@ if (isset($_POST['envoi'])) {
     <nav>
       <div class="row">
         <div class="col-md-3 col-sm-12">
-          <a href="../index.html">
+          <a href="acceuil.php">
           <img
             src="../assets/img/nouveau logo AUF.png"
             alt="logo"
@@ -174,5 +174,6 @@ $donnes = $insert->fetch();
       <!-- Copyright -->
     </footer>
   </body>
+  
 </html>
 
