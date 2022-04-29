@@ -6,21 +6,22 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    font-size:50px;
+    font-size: 50px;
     font-weight: bold;  
 }
 .noir{
    color: #433C3A;
 
 }
-.logo{
-    width: 65%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
+    /* .logo{
+        width: 30%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    } */
 nav{
     background-color: #ececec;
+    border-bottom: #433C3A solid 1px;
 }
 
 /* LE CORPS */
@@ -37,7 +38,7 @@ nav{
 footer{
     background-color: #A90A2F;
     font-size: 25px;
-    height: 70px;
+    /* height: 70px; */
     position: relative;
     bottom: 0;
     right: 0;
@@ -62,9 +63,7 @@ a{
     transform: scale(0.9);
     box-shadow:0px 5px 10px blue ;
 }
-nav{
-    border-bottom: #433C3A solid 1px;
-}
+
 .carte2{
     background-color: transparent !important;
 }
@@ -74,3 +73,27 @@ nav{
 .envoi{
     box-shadow: 0px 5px 10px #433C3A;
 }
+.titre0{
+    border-radius: 10px;
+    background-color: #ececec;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.form{
+    border: #ffb35c solid 3px;
+    border-radius: 30px;
+    margin-top: 5px;
+    
+
+}
+body{
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;  
+    height: 100%;
+
+}
+
+
