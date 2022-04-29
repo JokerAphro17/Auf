@@ -14,7 +14,7 @@
     <nav>
         <div class='row'>
             <div class='col-md-3 col-sm-12'>
-                <a href='../index.html'>
+                <a href='acceuil.php'>
                 <img src='../assets/img/nouveau logo AUF.png' alt='logo' class='logo w-100 '>
                 </a>
             </div>
@@ -28,7 +28,7 @@
 
 <?php 
 if (isset($_GET['ok'])) {
-    echo "<div class='alert alert-success text-light text-center bg-success'><h5>Enregistrement effectué avec succès</h5></div>";
+    echo "<div class='alert  alert-success text-light text-center bg-success' id='alert'><h5>Enregistrement effectué avec succès</h5></div>";
 }
 ?>
 <div class='container-fluid corps'>
@@ -45,13 +45,13 @@ if (isset($_GET['ok'])) {
                        <h4> NOUVEAU ABONNE</h4>
                     </div>
                 </div>
-                <div class='input-group input-group-sm mb-3'>
+                <div class='input-group input-group-sm c1 mb-3'>
                     <span  class='input-group-text' id='inputGroup-sizing-sm'>NOM</span>
                     <input name='nom' type='text' 
                     pattern = '[a-zA-Z]{1,20}'
                     class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='input-group input-group-sm c2 mb-3'>
                     <span class='input-group-text' 
                     
                     id='inputGroup-sizing-sm'>PRENOMS</span>
@@ -59,25 +59,25 @@ if (isset($_GET['ok'])) {
                     <input name='prenom' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'
                     pattern = "[a-zA-Z\s]{1,20}" required>
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='input-group input-group-sm c1 mb-3'>
                     <span class='input-group-text'id='inputGroup-sizing-sm'>DATE DE NAISSANCE</span>
                     <input name='date_naiss' type='date' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='input-group input-group-sm c2 mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>DEBUT D'ABONNEMENT</span>
                     <input name='debut_ab' type='date' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='input-group input-group-sm c1 mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>NUMERO DE TEL</span>
                     <input name='numero' type='number'
                     pattern = "[0-9]{8,10}"
                     class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='input-group input-group-sm c2 mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm'>EMAIL</span>
                     <input name='email' type='email' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' required>
                   </div>
-                  <div class='row justify-content-center'>
+                  <div class='row justify-content-center '>
                       
                         <button  type='submit' class=' col-6 envoi btn btn-primary'> Enregitrer</button>
                       
@@ -106,43 +106,43 @@ if (isset($_GET['ok'])) {
                        <h4> DERNIER ENREGISTREMENT</h4>
                     </div>
                 </div>
-                <div class='input-group input-group-sm mb-3'>
+                <div class=' inpu2 input-group-sm mb-3'>
                     <span  class='input-group-text'
                     style='width:100%' id='inputGroup-sizing-sm'>NOM:
                     <span style='font-weight: bold;'>&nbsp;$resultat[nom]</span></span>
                     
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class=' inpu2 input-group-sm mb-3'>
                     <span class='input-group-text'
                     style='width:100%' id='inputGroup-sizing-sm'>PRENOMS:
                     <span style='font-weight: bold;'>&nbsp;$resultat[prenom]</span></span>
                     
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class=' inpu2 input-group-sm mb-3'>
                     <span class='input-group-text'
                     style='width:100%' id='inputGroup-sizing-sm'>DATE DE NAISSANCE:
                     <span style='font-weight: bold;'>&nbsp;$resultat[date_naiss]</span></span>
                     
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='inpu2 input-group-sm mb-3'>
                     <span class='input-group-text'
                     style='width:100%' id='inputGroup-sizing-sm'>DEBUT D'ABONNEMENT:
                     <span style='font-weight: bold;'>&nbsp;$resultat[debut_ab]</span></span>
 
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='inpu2 input-group-sm mb-3'>
                     <span class='input-group-text' id='inputGroup-sizing-sm' style='width:100%'>NUMERO DE TEL: 
                     <span style='font-weight: bold;'>&nbsp;$resultat[debut_ab]</span></span>
 
                   </div>
-                  <div class='input-group input-group-sm mb-3'>
+                  <div class='inpu2 input-group-sm mb-3'>
                     <span class='input-group-text'
                     style='width:100%' id='inputGroup-sizing-sm'>EMAIL : 
-                    <span style='font-weight: bold;'>&nbsp;$resultat[email]</span>
+                    <span style='font-weight: bold; font-size:100%'>&nbsp;$resultat[email]</span>
                 </span>
                     
                   </div>" ?>
-                  <div class='row justify-content-center'>
+                  <div class='row justify-content-center mt-5' >
                       
                         <a href='list.php'  class=' col-6 envoi btn btn-warning'>Liste</a>
                       
@@ -161,4 +161,9 @@ if (isset($_GET['ok'])) {
     <!-- Copyright -->
 </footer> 
 </body>
+<script>
+ document.getElementById('alert') && setTimeout(()=>{ document.getElementById('alert').style.display = 'none';
+  },3000)
+
+</script>
 </html>
