@@ -32,6 +32,7 @@ if (isset($_POST['envoi'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/bootstrap5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="../assets/bootstrap5/js/bootstrap.bundle.js" defer></script>
     <link rel="stylesheet" href="../styles/modif.css" />
     <link rel="stylesheet" href="../styles/index.css" />
@@ -40,7 +41,7 @@ if (isset($_POST['envoi'])) {
   <body class="container-fluid">
     <nav>
       <div class="row">
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-2 col-sm-12">
           <a href="acceuil.php">
           <img
             src="../assets/img/nouveau logo AUF.png"
@@ -50,6 +51,15 @@ if (isset($_POST['envoi'])) {
           </a>
         </div>
         <div class="col-md-8 titre col-sm-12">GESTIONNAIRE DES ABONNES</div>
+        <div class="col-md-1 titre">
+                <a href="deconnexion.php" id="logout">
+                    <button type="button" class="btn btn-outline-danger ">
+                    <span class="material-symbols-outlined">
+                            logout
+                    </span>
+                    </button>
+                </a>
+        </div>
       </div>
     </nav>
 <?php 
@@ -182,6 +192,19 @@ $donnes = $insert->fetch();
       <!-- Copyright -->
     </footer>
   </body>
+  <script>
+    logout.addEventListener('click',(event)=>{
+                if(confirm('Voulez-vous vraiment vous déconnecter ?'))
+                {
+                    return true;
+                }
+                else
+                {   event.preventDefault();
+                    return false;
+                    
+                }
+            });
+  </script>
   
 </html>
 

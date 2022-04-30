@@ -15,6 +15,7 @@
     <link rel='stylesheet' href='../assets/bootstrap5/css/bootstrap.min.css'>
     <script src='../assets/bootstrap5/js/bootstrap.bundle.js' defer></script>
     <link rel='stylesheet' href='../styles/list.css'>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="../scripts/index.js"defer></script>
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' />
     <link rel='stylesheet' href='../styles/index.css'>
@@ -23,7 +24,7 @@
 <body class='container-fluid'>
     <nav>
         <div class='row'>
-            <div class='col-md-3 col-sm-12'>
+            <div class='col-md-2 col-sm-12'>
                 <a href='acceuil.php'>
                 <img src='../assets/img/nouveau logo AUF.png' alt='logo' class='logo w-100 '>
                 </a>
@@ -31,6 +32,15 @@
             <div class='col-md-8 titre col-sm-12 '>
                 GESTIONNAIRE DES ABONNES
             </div>
+            <div class="col-md-1 titre"  >
+                <a href="deconnexion.php" id="logout">
+                    <button type="button" class="btn btn-outline-danger ">
+                    <span class="material-symbols-outlined">
+                            logout
+                    </span>
+                    </button>
+                </a>
+        </div>
         </div>
     </nav>
 <?php 
@@ -155,6 +165,18 @@ if(isset($_GET['modif'])){
     </body>
     <script>
         document.getElementById('alert') && setTimeout(()=>{ document.getElementById('alert').style.display = 'none';
-  },3000)
+  },3000);
+  logout.addEventListener('click',(event)=>{
+                if(confirm('Voulez-vous vraiment vous déconnecter ?'))
+                {
+                    return true;
+                }
+                else
+                {   event.preventDefault();
+                    return false;
+                    
+                }
+            });
+
     </script>
 </html>

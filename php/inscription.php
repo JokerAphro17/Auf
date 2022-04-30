@@ -31,7 +31,7 @@
                 GESTIONNAIRE DES ABONNES
             </div>
             <div class="col-md-1 titre">
-                <a href="../login.php">
+                <a href="deconnexion.php" id="logout">
                     <button type="button" class="btn btn-outline-danger ">
                     <span class="material-symbols-outlined">
                             logout
@@ -181,7 +181,20 @@ if (isset($_GET['ok'])) {
 </body>
 <script>
  document.getElementById('alert') && setTimeout(()=>{ document.getElementById('alert').style.display = 'none';
-  },3000)
+  },3000);
+  logout.addEventListener('click',(event)=>{
+                if(confirm('Voulez-vous vraiment vous déconnecter ?'))
+                {
+                    return true;
+                }
+                else
+                {   event.preventDefault();
+                    return false;
+                    
+                }
+            });
+
+
 
 </script>
 </html>
