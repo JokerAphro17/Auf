@@ -1,4 +1,5 @@
 <?php
+session.start();
 include('./connexion.php');
 try
 {   $insert = $bdd->prepare('DELETE FROM abonnes WHERE id=?');

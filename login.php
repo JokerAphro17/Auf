@@ -1,3 +1,47 @@
+<?php
+    session_start();
+    include('php/connexion.php');
+    $reponse = $bdd->query('SELECT COUNT(*) AS nb_admis FROM users');
+    $donnees = $reponse->fetch();
+    
+    if ($donnees['nb_admis'] > 0)
+    {
+        $nb_admis = $donnees['nb_admis'];
+    }
+    if (isset($_POST['connect']))
+    {
+        if (empty($_POST['email']) || empty($_POST['password']))
+        {
+            
+            echo "<script>alert('Veuillez remplir tous les champs !');</script>";
+        }
+        else
+        {
+            $email = $_POST['email'];
+            $password = md5($_POST['password']);
+        $req = $bdd->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
+        $req->execute(array(
+            'email' => $email,
+            'password' => $password
+        ));
+        $resultat = $req->fetch();
+        if (!$resultat)
+        {
+            echo '<div class="alert alert-danger" role="alert">
+            <strong>Erreur!</strong> Email ou mot de passe incorrect.
+            </div>';
+        }
+        else
+        {
+            $_SESSION['nom'] = $resultat['nom'];
+
+            $_SESSION['connect'] = 1;
+            header('location: php/acceuil.php?connect=1');
+        }
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +69,19 @@
         </div>
     </nav>
 <!-- le corps de la page  --> 
+<?php
+if (isset($_GET['inscription']))
+{
+        echo '<div class="alert alert-success text-center " role="alert">
+        <strong>Félicitation!</strong> Vous êtes inscrit.
+        </div>';
+}
+?>
 <div class="row justify-content-center container2 mt-5 ">
         
 
                 
-            <form action='index.php' method='post' class="col-md-6 form bg-opacity-75 bg-white pb-3">
+            <form action='' method='post' class="col-md-6 form bg-opacity-75 bg-white pb-3">
                 <div class='row'>
             
                     <div class='col mt-5 text-center text-light mb-3'>
@@ -60,8 +112,8 @@
                   </div>
                   <div class='row justify-content-center '>
                       
-                        <button  type='submit' class=' col-6 envoi btn btn-primary'>Se connecter </button>
-                      
+                        <input  type='submit'name="connect" class=' col-4 envoi btn bg-primary text-light'  value="Se connecter">
+                        <a class="col-4 envoi ms-2  btn btn-warning" href="index.php " id="inscription" >S'incription </a>
                   </div>
             </form>
         
@@ -73,5 +125,15 @@
                 </div>
             </footer> 
     </div>
-</body>                     
+</body>
+<?php
+
+if( isset($nb_admis) && $nb_admis > 0)
+{
+    echo '<script>
+      let buton = document.getElementById("inscription");
+        buton.style.display = "none";
+    </script>';
+}
+?>
 </html>

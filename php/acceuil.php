@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if (($_SESSION['connect']!=1))
+    {
+        header('location: ../login.php');
+        exit();
+    }
+    
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap5/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="../assets/bootstrap5/js/bootstrap.bundle.js" defer></script>
     <title>Acceuil</title>
 </head>
@@ -20,8 +32,22 @@
             <div class="col-md-8 titre col-sm-12">
                 GESTIONNAIRE DES ABONNES
             </div>
+            <div class="col-md-1 titre">
+                <a href="../login.php">
+                    <button type="button" class="btn btn-outline-danger ">
+                    <span class="material-symbols-outlined">
+                            logout
+                    </span>
+                    </button>
+                </a>
         </div>
     </nav>
+    <?php
+        if (isset($_GET['connect']))
+        {
+            echo "<div class='alert alert-success text-center text-light bg-success' id='alert'><h5>Vous êtes connecté</h5></div>";
+        }
+    ?>
 <!-- le corps de la page  -->
         <div class="row b1">
             <div class="col-md-6  offset-md-3 col-sm-12 mt-5 text-light text-center demand">
@@ -32,8 +58,8 @@
                 <div class="row justify-content-evenly ">
                     <div class="col-md-3 col-lg-4 ">
                         <div class="card bg-warning w-100 c1">
-                            <a href="php/inscription.php">
-                                <img class="card-img-top " src="assets/img/inscrip.webp" alt="Card image cap">
+                            <a href="inscription.php">
+                                <img class="card-img-top " src="../assets/img/inscrip.webp" alt="Card image cap">
                             <div class="card-body text-center text-light">
                                 <h5 class="card-title">AJOUTER UN ABONNES</h5>
                             </div>
@@ -42,8 +68,8 @@
                     </div>
                     <div class="col-md-3 col-lg-4 ">
                         <div class="card bg-primary w-100 c2">
-                            <a href="php/list.php">
-                                <img class="card-img-top" src="assets/img/liste.webp" alt="Card image cap" >
+                            <a href="list.php">
+                                <img class="card-img-top" src="../assets/img/liste.webp" alt="Card image cap" >
                             <div class="card-body text-center text-light">
                                 <h5 class="card-title">GERER LES ABONNES</h5>
                             </div>
@@ -58,7 +84,12 @@
                 © 2022 Copyright:
 
                 </div>
-            </footer> 
+            </footer>
     </div>
-</body>                     
+</body>
+<script>
+            document.getElementById('alert') && setTimeout(()=>{ document.getElementById('alert').style.display = 'none';
+            },3000);
+
+</script>            
 </html>

@@ -6,7 +6,6 @@ body{
     background:url("../assets/img/imgs.png"); 
     background-size: cover;
     background-repeat: no-repeat;
-    border: red 2px solid;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -14,11 +13,6 @@ body{
     
 }
 .foo{
-    position: absolute;
-    bottom: 0;
+    margin-top: 90px;
 }
-.container{
-    position: absolute;
-    bottom: 0;
-    
-}
+

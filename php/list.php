@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['connect']))
+    {
+        header('location: ../login.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -133,7 +141,7 @@ if(isset($_GET['modif'])){
     </div>
     
     <div class='row justify-content-center'>
-        <div class='col-md-4 col-sm-4'>
+        <div class='col-md-3 col-sm-4'>
             <a href='inscription.php'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-plus'></i> AJOUTER UN ABONNE</button></a>
         </div>
 </div>

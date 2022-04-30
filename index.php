@@ -1,3 +1,34 @@
+<?php
+    include('php/connexion.php');
+    $reponse = $bdd->query('SELECT COUNT(*) AS nb_admis FROM users');
+    $donnees = $reponse->fetch();
+    if ($donnees['nb_admis'] > 0)
+    {
+        header ('Location: login.php');
+    }
+    else{
+
+
+    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['password'])) {
+        if($_POST['password']==$_POST['password1']){
+            $nom=$_POST['nom'];
+            $prenom=$_POST['prenom'];
+            $email=$_POST['email'];
+            $password=$_POST['password'];
+            $password=md5($password);
+            $req=$bdd->prepare("INSERT INTO `users`(`nom`, `prenom`, `email`, `password`) VALUES (?,?,?,?)");
+            $req->execute(array($nom,$prenom,$email,$password));
+            header('location:login.php?inscription=1');
+        }
+        else{
+            $non = 1;
+        
+        }
+       
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +57,7 @@
     </nav>
 <!-- le corps de la page  --> 
 <div class="row justify-content-center body ">    
-            <form action='index.php' method='post' class="col-md-6 form bg-opacity-75 bg-white pb-3">
+            <form action='' method='post' id ="form"class="col-md-6 form bg-opacity-75 bg-white pb-3">
                 <div class='row'>
 
                     <div class='col mt-5 text-center text-light mb-3'>
@@ -54,7 +85,7 @@
                         </span>
                     </span>
                     
-                    <input name='prenom' type='email' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'
+                    <input name='prenom' type='text' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm'
                     placeholder='PRENOMS'
                     pattern = "[a-zA-Z\s]{1,20}" required>
                   </div>
@@ -88,12 +119,19 @@
                         </span>
                     </span>
                     <input name='password1' type='password'
-                    pattern = "[0-9]{8,10}"
+                    
                     class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' placeholder="repeter le mot de passe" required>
                   </div>
+                  <?php
+                    if(isset($non)){
+                        echo "<div class='alert alert-danger'>
+                        <strong>Erreur!</strong> les mots de passe ne sont pas identiques
+                        </div>";
+                    }
+                    ?>
                   <div class='row justify-content-center '>
                       
-                        <button  type='submit' class=' col-6 envoi btn btn-primary'>S'inscrire</button>
+                        <button  type='submit' name ="inscription"class=' col-6 envoi btn btn-primary' >S'inscrire</button>
                       
                   </div>
             </form>
@@ -106,5 +144,18 @@
                 </div>
             </footer> 
     </div>
-</body>                     
+</body>
+<script>
+    let form =document.getElementById('form');
+    form.addEventListener("submit", function (event) {
+        if(form.password.value != form.password1.value){
+            alert("les mots de passe ne sont pas identiques");
+            form.password.value = "";
+            form.password1.value = "";
+            event.preventDefault();
+            form.password.focus();
+        }
+    });
+
+</script>                     
 </html>

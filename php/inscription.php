@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['connect']))
+    {
+        header('location: ../login.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -6,6 +14,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='../assets/bootstrap5/css/bootstrap.min.css'>
     <script src='../assets/bootstrap5/js/bootstrap.bundle.js' defer></script>
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel='stylesheet' href='../styles/index.css'>
     <link rel='stylesheet' href='../styles/ins.css'>
     <title>Enregitrement</title>
@@ -13,7 +22,7 @@
 <body class='container-fluid'>
     <nav>
         <div class='row'>
-            <div class='col-md-3 col-sm-12'>
+            <div class='col-md-2 col-sm-12'>
                 <a href='acceuil.php'>
                 <img src='../assets/img/nouveau logo AUF.png' alt='logo' class='logo w-100 '>
                 </a>
@@ -21,6 +30,15 @@
             <div class='col-md-8 titre col-sm-12'>
                 GESTIONNAIRE DES ABONNES
             </div>
+            <div class="col-md-1 titre">
+                <a href="../login.php">
+                    <button type="button" class="btn btn-outline-danger ">
+                    <span class="material-symbols-outlined">
+                            logout
+                    </span>
+                    </button>
+                </a>
+        </div>
         </div>
     </nav>
 

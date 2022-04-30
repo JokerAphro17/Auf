@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['connect']))
+    {
+        header('location: ../login.php');
+        exit();
+    }
+?>
+<?php
 include('./connexion.php');
 if (isset($_POST['envoi'])) {
   $nom = $_POST['nom'];
