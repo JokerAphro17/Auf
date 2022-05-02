@@ -123,8 +123,9 @@ if(isset($_GET['modif'])){
                                             </td>
                                         
                                         <td>
-                                            <a href='supprimer.php?id=$donnees[id]'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button></a>
-                                            <a href='modif.php?id=$donnees[id]'>
+                                            
+                                            <button type='button' id='delete' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><a  href='supprimer.php?id=$donnees[id]' ><i class='fa fa-trash'></i></a> </button>
+                                            <a href='modif.php?id=$donnees[id]'  >
                                             <button type='button' class='btn  btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button></a>
                                         </td>
                                         
@@ -150,6 +151,9 @@ if(isset($_GET['modif'])){
         </div>
     </div>
     
+
+
+
     <div class='row justify-content-center'>
         <div class='col-md-3 col-sm-4'>
             <a href='inscription.php'><button type='button' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-plus'></i> AJOUTER UN ABONNE</button></a>
@@ -162,10 +166,12 @@ if(isset($_GET['modif'])){
             </div>
             <!-- Copyright -->
         </footer> 
+        
     </body>
     <script>
         document.getElementById('alert') && setTimeout(()=>{ document.getElementById('alert').style.display = 'none';
   },3000);
+  
   logout.addEventListener('click',(event)=>{
                 if(confirm('Voulez-vous vraiment vous déconnecter ?'))
                 {
@@ -177,6 +183,23 @@ if(isset($_GET['modif'])){
                     
                 }
             });
-
+            var myModal = document.getElementById('myModal')
+            var myInput = document.getElementById('myInput')
+            myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+            })
+    let delet=document.getElementById('delete');
+    alert(delet)
+    delet.addEventListener('click',(event)=>{
+        if(confirm('Voulez-vous vraiment supprimer cet abonné ?'))
+        {
+            return true;
+        }
+        else
+        {   event.preventDefault();
+            return false;
+            
+        }
+    });
     </script>
 </html>
